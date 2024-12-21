@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sliderImg {
+    @apply w-full lg:h-[700px] h-[300px] object-cover rounded-2xl transform animate-zoom transition-all duration-700;
+  }
+  .navBtn {
+    @apply flex items-center gap-2 border-[1px] border-TealBlueGreen py-2 px-5 rounded-full
+  }
+  .input-style{
+    @apply flex items-center border-[1px] border-TealBlueGreen rounded-xl pl-3 bg-white
+  }
+  .input-field{
+    @apply w-full focus:outline-none focus:border-0 rounded-xl 
+  }
+  .checkBox{
+    @apply w-4 h-4 flex items-center justify-center border-[1px] border-TealBlueGreen rounded-sm text-transparent peer-checked:bg-TealBlueGreen peer-checked:border-TealBlueGreen peer-checked:text-white
+  }
+  .googleBtn{
+    @apply flex items-center gap-2 border-[1px] border-TealBlueGreen rounded-xl py-2 px-3 mt-5 hover:bg-TealBlueGreen hover:text-white transition-all duration-500
+  }
+  .fromBtn{
+    @apply w-full text-xl font-bold py-3 px-5 border-[1px] border-TealBlueGreen bg-TealBlueGreen rounded-xl text-white mt-5 hover:bg-white hover:text-TealBlueGreen transition-all duration-500
+  }
+}
+
