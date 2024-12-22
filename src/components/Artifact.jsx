@@ -44,7 +44,7 @@ export default function Artifact({artifact}) {
 			</button>
 		</div>
 	</div>
-    <Link className="border-[1px] border-TealBlueGreen py-2 text-center font-medium hover:bg-TealBlueGreen hover:text-white transition-all duration-500">
+    <Link to={`/artifactsDetails/${_id}`} className="border-[1px] border-TealBlueGreen py-2 text-center font-medium hover:bg-TealBlueGreen hover:text-white transition-all duration-500">
     <button className="z-20">View Details</button>
     </Link>
 </div>

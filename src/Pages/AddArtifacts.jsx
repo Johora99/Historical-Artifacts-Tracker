@@ -8,6 +8,7 @@ import { IoImageOutline } from "react-icons/io5";
 import { GiAncientRuins } from "react-icons/gi";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import useAuth from "../Hooks/useAuth";
+import axios from "axios";
 export default function AddArtifacts() {
   const {user} = useAuth();
   const options = {
@@ -16,9 +17,30 @@ export default function AddArtifacts() {
   };
   const handleAddArtifacts = (e)=>{
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data)
+    const artifact_added_name = e.target.name.value;
+    const artifact_added_email = e.target.email.value;
+    const artifact_name = e.target.artifact_name.value;
+    const artifact_image = e.target.artifact_image.value;
+    const historical_context = e.target.historical_context.value;
+    const artifact_type = e.target.artifact_type.value;
+    const created_at = e.target.created_at.value;
+    const discovered_at = e.target.discovered_at.value;
+    const discovered_by = e.target.discovered_by.value;
+    const present_location = e.target.present_location.value;
+     
+    const artifact_adder = {
+      artifact_added_name , artifact_added_email,artifact_added_image : user.photoURL,artifact_added_date : new Date ().toISOString().split('T')[0]
+    }
+  const allData = {
+    artifact_name,artifact_image,artifact_type,historical_context,created_at,discovered_at,discovered_by,like_count : 0,dislike_count : 0,present_location,artifact_adder
+    
+  }
+    
+
+    axios.post(`${import.meta.env.VITE_API_URL}/allArtifacts`,allData)
+    .then(res=>{
+      console.log(res.data)
+    })
   }
   return (
     <div className="bgStyle">

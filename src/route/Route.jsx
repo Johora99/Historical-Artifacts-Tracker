@@ -6,6 +6,7 @@ import SignUpPage from "../Pages/SignUpPage";
 import LogInPage from "../Pages/LogInPage";
 import AddArtifacts from "../Pages/AddArtifacts";
 import AllArtifactsPage from "../Pages/AllArtifactsPage";
+import ArtifactsDetailsPage from "../Pages/ArtifactsDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
       {
        path:'/allArtifacts',
        element:<AllArtifactsPage></AllArtifactsPage>
+      },
+      {
+       path:'/artifactsDetails/:id',
+       loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/allArtifacts/${params.id}`),
+       element:<ArtifactsDetailsPage></ArtifactsDetailsPage>
       },
       {
         path:'/signUp',
