@@ -5,12 +5,21 @@ import { LuClipboardType } from "react-icons/lu";
 import { MdDateRange } from "react-icons/md";
 import { BsPersonGear } from "react-icons/bs";
 import { IoImageOutline } from "react-icons/io5";
-
+import { GiAncientRuins } from "react-icons/gi";
+import { MdOutlineAttachEmail } from "react-icons/md";
+import useAuth from "../Hooks/useAuth";
 export default function AddArtifacts() {
+  const {user} = useAuth();
   const options = {
     animationData: lottieFile,
     loop: true
   };
+  const handleAddArtifacts = (e)=>{
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data)
+  }
   return (
     <div className="bgStyle">
       <div className="bgLinear">
@@ -22,14 +31,34 @@ export default function AddArtifacts() {
           <div>
             <h3 className="text-4xl font-semibold mb-8">Contribute Your Artifact</h3>
           </div>
-       <form>
+       <form onSubmit={handleAddArtifacts}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-3">
+         <label className="form-control w-full ">
+         <div className="label">
+         <span className="label-text text-lg font-medium">Name</span>
+         </div>
+         <div className="input-style">
+          <BsPersonGear className="text-TealBlueGreen"/>
+         <input type="text" name="name" placeholder="Enter Your Name" className="input input-field" value={user?.displayName} readOnly  required/>
+         </div>
+         </label>
+         <label className="form-control w-full">
+         <div className="label">
+         <span className="label-text text-lg font-medium">Email</span>
+         </div>
+            <div className="input-style">
+          <MdOutlineAttachEmail className="text-TealBlueGreen"/>
+         <input type="email" name="email" placeholder="Enter Your Email" className="input input-field" value={user?.email} readOnly required/>
+         </div>
+         </label>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-3">
          <label className="form-control w-full ">
          <div className="label">
          <span className="label-text text-lg font-medium">Artifact Name</span>
          </div>
          <div className="input-style">
-          <BsPersonGear className="text-TealBlueGreen"/>
+          <GiAncientRuins className='text-TealBlueGreen'/>
          <input type="text" name="artifact_name" placeholder="Artifact Name" className="input input-field" required/>
          </div>
          </label>

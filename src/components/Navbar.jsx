@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
           <ul className="flex items-center gap-10 *:text-lg *:font-normal">
             <li><NavLink to='/' className="navLink">Home</NavLink></li>
-            <li><NavLink to='/allJobs' className='navLink'>All Artifacts</NavLink></li>
+            <li><NavLink to='/allArtifacts' className='navLink'>All Artifacts</NavLink></li>
             <li><NavLink to='/addArtifacts' className='navLink'>Add Artifacts</NavLink></li>
             <li className="relative group z-[20]"><NavLink className='navLink'>
               <p className="flex items-center gap-2">  My Profile<FaChevronDown /></p>
@@ -72,7 +72,7 @@ export default function Navbar() {
             `} >
               <ul>
             <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/allJobs'>All Artifacts</NavLink></li>
+            <li><NavLink to='/allArtifacts'>All Artifacts</NavLink></li>
             <li><NavLink to='/addArtifacts'>Add Artifacts</NavLink></li>
             <li className="relative group">
               <p onClick={(e)=>{e.stopPropagation();setUserLink(!userLink)}} className="flex items-center gap-2">  My Profile <FaChevronDown /></p>

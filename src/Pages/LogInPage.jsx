@@ -5,11 +5,25 @@ import lottieFile from '../assets/Animation - 1734166572857.json';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../components/GoogleSignIn";
 import useAuth from "../Hooks/useAuth";
+import { useRef } from "react";
 
 export default function LogInPage() {
-  const {userLogIn} = useAuth();
+  const {userLogIn,resetPassword} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const emailRef = useRef();
+
+
+   const handleResetPassword = () => {
+    const resetEmail = emailRef.current?.value;
+    resetPassword(resetEmail)
+    .then(res=>{
+      console.log(res);
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+ }
      const options = {
     animationData: lottieFile,
     loop: true
@@ -27,6 +41,7 @@ export default function LogInPage() {
       console.log(err)
     })
   }
+  
   return (
       <div className="bgStyle">
       <div className="bgLinear">
@@ -45,12 +60,15 @@ export default function LogInPage() {
          </div>
             <div className="input-style">
           <TfiEmail className="text-TealBlueGreen"/>
-         <input type="text" name="email" placeholder="Enter your Email" className="input input-field" />
+         <input type="text" name="email" placeholder="Enter your Email" className="input input-field" ref={emailRef}/>
          </div>
          </label>
          <label className="form-control w-full">
          <div className="label">
+          <div className="w-full flex items-center justify-between">
          <span className="label-text text-lg font-medium">Password</span>
+         <Link onClick={handleResetPassword} className="label-text text-lg font-medium">Forget Password</Link>
+          </div>
          </div>
             <div className="input-style">
               <RiLockPasswordLine className="text-TealBlueGreen"/>

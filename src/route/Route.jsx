@@ -5,6 +5,7 @@ import HomePage from "../Pages/HomePage";
 import SignUpPage from "../Pages/SignUpPage";
 import LogInPage from "../Pages/LogInPage";
 import AddArtifacts from "../Pages/AddArtifacts";
+import AllArtifactsPage from "../Pages/AllArtifactsPage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
       path:'/addArtifacts',
       element:<AddArtifacts></AddArtifacts>
+      },
+      {
+       path:'/allArtifacts',
+       element:<AllArtifactsPage></AllArtifactsPage>
       },
       {
         path:'/signUp',
