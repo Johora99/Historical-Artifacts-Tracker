@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function Artifacts() {
   const [artifacts,setArtifacts] = useState([]);
   useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_API_URL}/latestArtifacts`)
+   axios.get(`${import.meta.env.VITE_API_URL}/latestArtifacts`)
     .then(res =>setArtifacts(res.data))
   },[])
   return (

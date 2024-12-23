@@ -7,8 +7,8 @@ import { motion } from "motion/react"
 
 export default function AllArtifactsPage() {
   const [allArtifacts,setAllArtifacts] = useState([]);
-  useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts`)
+  useEffect( ()=>{
+   axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts`)
     .then(res =>setAllArtifacts(res.data))
   },[])
   return (

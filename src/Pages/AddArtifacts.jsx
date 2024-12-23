@@ -9,13 +9,14 @@ import { GiAncientRuins } from "react-icons/gi";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import useAuth from "../Hooks/useAuth";
 import axios from "axios";
+import Swal from 'sweetalert2'
 export default function AddArtifacts() {
   const {user} = useAuth();
   const options = {
     animationData: lottieFile,
     loop: true
   };
-  const handleAddArtifacts = (e)=>{
+  const handleAddArtifacts = async (e)=>{
     e.preventDefault();
     const artifact_added_name = e.target.name.value;
     const artifact_added_email = e.target.email.value;
@@ -37,9 +38,18 @@ export default function AddArtifacts() {
   }
     
 
-    axios.post(`${import.meta.env.VITE_API_URL}/allArtifacts`,allData)
+  await axios.post(`${import.meta.env.VITE_API_URL}/allArtifacts`,allData)
     .then(res=>{
-      console.log(res.data)
+      if(res.data.insertedId){
+                  Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+       e.target.reset();
+      }
     })
   }
   return (

@@ -27,7 +27,6 @@ const router = createBrowserRouter([
       },
       {
        path:'/artifactsDetails/:id',
-       loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/allArtifacts/${params.id}`),
        element:<ArtifactsDetailsPage></ArtifactsDetailsPage>
       },
       {
