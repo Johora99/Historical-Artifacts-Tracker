@@ -7,6 +7,7 @@ import { BiLike } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../Hooks/useAuth";
+import { toast } from "react-toastify";
 export default function ArtifactsDetailsPage() {
   const {id} = useParams();
   const {user} = useAuth();
@@ -37,13 +38,17 @@ const handleLike = async () => {
   try {
     await axios.post(`${import.meta.env.VITE_API_URL}/like`, likeData)
     .then(res=>{
-      
+      if (res.data.message === 'You have already liked this artifact!') {
+      toast.error('You have already liked this artifact!');
+    } else {
+      toast.success('You have liked this artifact!');
+    }
     })
 
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts/${id}`);
     setArtifact(response.data); 
   } catch (error) {
-    console.error('Error liking the artifact:', error);
+    toast.error('You have already liked this artifact!');
   }
 };
 

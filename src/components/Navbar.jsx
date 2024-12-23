@@ -31,8 +31,8 @@ export default function Navbar() {
             <li className="relative group z-[20]"><NavLink className='navLink'>
               <p className="flex items-center gap-2">  My Profile<FaChevronDown /></p>
               <ul className="absolute -top-[200px] left-0 p-5 bg-slate-700 w-48  group-hover:block group-hover:top-[180%] transition-all duration-1000 ease-in-out">
-               <li><NavLink to='/myApplication'>My Artifacts</NavLink></li>
-               <li><NavLink to='/myPostedJobs'>Liked Artifacts</NavLink></li>
+               <li><NavLink to='/myArtifacts'>My Artifacts</NavLink></li>
+               <li><NavLink to='/myLikedArtifacts'>Liked Artifacts</NavLink></li>
               </ul>
               </NavLink></li>
           </ul>
@@ -77,8 +77,8 @@ export default function Navbar() {
             <li className="relative group">
               <p onClick={(e)=>{e.stopPropagation();setUserLink(!userLink)}} className="flex items-center gap-2">  My Profile <FaChevronDown /></p>
               <ul className={`${userLink ? 'block' : 'hidden'}`}>
-               <li><NavLink to='/myApplication'>My Artifacts</NavLink></li>
-               <li><NavLink to='/myPostedJobs'>Liked Artifacts</NavLink></li>
+               <li><NavLink to='/myArtifacts'>My Artifacts</NavLink></li>
+               <li><NavLink to='/myLikedArtifacts'>Liked Artifacts</NavLink></li>
               </ul>
               </li>
                 {
