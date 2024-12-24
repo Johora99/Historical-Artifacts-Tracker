@@ -1,5 +1,5 @@
-import React from 'react'
 
+import { motion } from "motion/react"
 export default function UpComingArtifacts() {
   const artifacts = [
     {
@@ -25,19 +25,23 @@ export default function UpComingArtifacts() {
     },
   ];
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-200 py-12">
+    <section className="bg-DeepSeaGreen mb-20 py-12">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-6">
-          Our Artifacts Collection
-        </h2>
-        <p className="text-gray-600 mb-12">
-          Discover the unique artifacts preserved from various parts of history.
+      <div className="text-center mb-5">
+                    <motion.h2 animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
+                    transition={{duration:2, repeat:Infinity}}
+                    
+                    className="text-5xl text-TealBlueGreen font-semibold text-center flex items-center gap-5 justify-center">Our Upcoming Artifacts Collection</motion.h2>
+                    
+                  </div>
+        <p className="text-LightGray mb-20 w-[65%] mx-auto">
+          Explore a fascinating collection of artifacts from different eras of history, each telling a unique story of cultures, civilizations, and events that shaped the world. From ancient tools and weapons to intricate jewelry and architectural remains, these relics offer a glimpse into the lives of people who lived centuries ago. Each artifact, carefully preserved, provides a window into the past, revealing the creativity, craftsmanship, and ingenuity that has been passed down through generations. Discover the timeless beauty and historical significance of these objects, which continue to inspire awe and admiration today.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {artifacts.map((artifact) => (
             <div
               key={artifact.id}
-              className="relative bg-white shadow-lg rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-purple-300"
+              className="relative bg-TealBlueGreen shadow-lg rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl "
             >
               <div className="relative group">
                 <img
@@ -53,10 +57,10 @@ export default function UpComingArtifacts() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800">
+                <h3 className="text-xl font-semibold text-DeepSeaGreen">
                   {artifact.name}
                 </h3>
-                <p className="text-gray-600 mt-2">{artifact.description}</p>
+                <p className="text-LightGray mt-2">{artifact.description}</p>
               </div>
             </div>
           ))}
