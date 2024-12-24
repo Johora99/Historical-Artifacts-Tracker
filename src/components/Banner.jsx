@@ -6,6 +6,7 @@ import Img2 from '../assets/Img2.jpg';
 import Img3 from '../assets/Img3.jpg';
 import Img4 from '../assets/Img4.jpg';
 import Img5 from '../assets/Img5.jpg';
+import SliedContent from "./SliedContent";
 export default function Banner() {
   const settings = {
     dots: true,
@@ -23,8 +24,12 @@ export default function Banner() {
     <div className="container w-11/12 mx-auto">
       <div className="slider-container">
       <Slider {...settings}>
-        <div className="overflow-hidden rounded-2xl">
+        <div className="overflow-hidden rounded-2xl relative">
           <img src={Img1} className="sliderImg"/>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <SliedContent title = 'The Silent Guardians of China’s First Emperor'></SliedContent>
+        </div>
+        
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img src={Img2} className="sliderImg"/>
