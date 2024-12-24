@@ -11,6 +11,7 @@ import MyArtifactsPage from "../Pages/MyArtifactsPage";
 import UpdatePage from "../Pages/UpdatePage";
 import MyLikedArtifactsPage from "../Pages/MyLikedArtifactsPage";
 import ErrorPage from "../Pages/ErrorPage";
+import PrivatePage from "../Pages/PrivatePage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
       path:'/addArtifacts',
-      element:<AddArtifacts></AddArtifacts>
+      element:<PrivatePage><AddArtifacts></AddArtifacts></PrivatePage>
       },
       {
        path:'/allArtifacts',
@@ -31,19 +32,19 @@ const router = createBrowserRouter([
       },
       {
        path:'/artifactsDetails/:id',
-       element:<ArtifactsDetailsPage></ArtifactsDetailsPage>
+       element:<PrivatePage><ArtifactsDetailsPage></ArtifactsDetailsPage></PrivatePage>
       },
       {
       path:'/myArtifacts',
-      element:<MyArtifactsPage></MyArtifactsPage>
+      element:<PrivatePage><MyArtifactsPage></MyArtifactsPage></PrivatePage>
       },
       {
        path:'/myLikedArtifacts',
-       element:<MyLikedArtifactsPage></MyLikedArtifactsPage>
+       element:<PrivatePage><MyLikedArtifactsPage></MyLikedArtifactsPage></PrivatePage>
       },
       {
        path:'/updateArtifacts/:id',
-       element:<UpdatePage></UpdatePage>
+       element:<PrivatePage><UpdatePage></UpdatePage></PrivatePage>
       },
       {
         path:'/signUp',
