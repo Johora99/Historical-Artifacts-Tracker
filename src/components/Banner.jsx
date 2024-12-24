@@ -27,21 +27,33 @@ export default function Banner() {
         <div className="overflow-hidden rounded-2xl relative">
           <img src={Img1} className="sliderImg"/>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <SliedContent title = 'The Silent Guardians of China’s First Emperor'></SliedContent>
+          <SliedContent title = 'Exploring the Legacy of Ancient Artifacts'></SliedContent>
         </div>
         
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img src={Img2} className="sliderImg"/>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <SliedContent title = 'The Hidden Tales of Historical Artifacts'></SliedContent>
+        </div>
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img src={Img3} className="sliderImg"/>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <SliedContent title = ' Exploring the Wonders of Ancient Artifacts'></SliedContent>
+        </div>
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img src={Img4} className="sliderImg"/>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <SliedContent title = 'The Significance of Artifacts in History'></SliedContent>
+        </div>
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img src={Img5} className="sliderImg"/>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <SliedContent title = 'Timeless Artifacts That Shaped Civilizations'></SliedContent>
+        </div>
         </div>
       
       </Slider>

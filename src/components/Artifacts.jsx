@@ -27,7 +27,7 @@ export default function Artifacts() {
           artifacts.map(artifact =><Artifact key={artifact._id} artifact={artifact}></Artifact>)
         }
       </div>
-      <div className="mt-20">
+      <div className="mt-20 pb-20">
         <Link to='/allArtifacts' className="navBtn btnBland w-fit mx-auto text-TealBlueGreen font-medium px-10 text-lg py-3">
         <button className="z-20">See All Artifacts</button>
         </Link>
