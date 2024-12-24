@@ -1,6 +1,8 @@
 import Artifacts from "../components/Artifacts";
 import Banner from "../components/Banner";
+import BecomeAMember from "../components/BecomeAMember";
 import Counter from "../components/Counter";
+import UpComingArtifacts from "../components/UpComingArtifacts";
 
 
 export default function HomePage() {
@@ -9,6 +11,8 @@ export default function HomePage() {
       <Banner></Banner>
       <Artifacts></Artifacts>
       <Counter></Counter>
+      <BecomeAMember></BecomeAMember>
+      <UpComingArtifacts></UpComingArtifacts>
     </div>
   )
 }
