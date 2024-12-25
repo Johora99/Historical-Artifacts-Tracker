@@ -1,16 +1,19 @@
-import { useLoaderData, useParams } from "react-router-dom"
 import Lottie from "react-lottie";
 import lottieFile from '../assets/Animation - 1734166572857.json';
 import { motion } from "motion/react";
-import { BiDislike } from "react-icons/bi";
 import { BiLike } from "react-icons/bi";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../Hooks/useAxiosHook";
+import { Await, useParams } from "react-router-dom";
+import { BiDislike } from "react-icons/bi";
 export default function ArtifactsDetailsPage() {
+  const axiosSecure = useAxiosSecure()
   const {id} = useParams();
   const {user} = useAuth();
+  const [likes,setLikes] = useState({});
+  const [isLiked, setIsLiked] = useState();
   const [artifact,setArtifact] = useState({});
   const options = {
     animationData: lottieFile,
@@ -20,7 +23,7 @@ export default function ArtifactsDetailsPage() {
   useEffect(() => {
   const handle = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts/${id}`);
+      const response = await axiosSecure.get(`/allArtifacts/${id}`);
       setArtifact(response.data);
     } catch (error) {
       console.error('Error fetching artifact data:', error);
@@ -28,24 +31,39 @@ export default function ArtifactsDetailsPage() {
   };
   handle();
 }, [id]);
+useEffect(()=>{
+  const handleLikeData = async ()=>{
+    await axiosSecure.get(`/like?email=${user?.email}`)
+    .then(res => setLikes(res.data))
+  }
+  handleLikeData()
+},[user?.email])
+useEffect(() => {
+  if (likes.length > 0) {
+    const filter = likes.find((item) => item.artifacts_Info._id === id);
+    setIsLiked(filter?.like)
+  }
+}, [likes]);
 
 const likeData = {
   liked_by: user?.email,
   artifacts_Info: artifact,
+  like : true,
 };
 
 const handleLike = async () => {
+  setIsLiked(!isLiked)
   try {
-    await axios.post(`${import.meta.env.VITE_API_URL}/like`, likeData)
+    await axiosSecure.post(`/like`, likeData)
     .then(res=>{
-      if (res.data.message === 'You have already liked this artifact!') {
-      toast.error('You have already liked this artifact!');
-    } else {
+      if (res.data.message === 'Disliked successfully!') {
+      toast.error('Like Removed!');
+    } else if(res.data.message === 'Liked successfully!'){
       toast.success('You have liked this artifact!');
     }
     })
 
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts/${id}`);
+    const response = await axiosSecure.get(`/allArtifacts/${id}`);
     setArtifact(response.data); 
   } catch (error) {
     toast.error('You have already liked this artifact!');
@@ -104,14 +122,18 @@ const handleLike = async () => {
                     <p className="text-lg my-2"><span className="font-semibold">Present Location</span> : <span>{artifact?.present_location}</span></p>
                    </div>
                    <div className="flex space-x-2 text-sm mt-5">
-                        <button type="button" className="flex items-center p-1 space-x-1.5 bg-DeepSeaGreen rounded-xl text-TealBlueGreen py-1 px-3 border-[2px] shadow-lg border-TealBlueGreen">
-                          <BiLike onClick={handleLike} className="text-lg"/>
-                          <span>{artifact?.like_count}</span>
-                        </button>
-                        {/* <button type="button" className="flex items-center p-1 space-x-1.5 bg-DeepSeaGreen rounded-xl text-TealBlueGreen py-1 px-3 border-[2px] shadow-lg border-TealBlueGreen">
-                          <BiDislike onClick={()=>handleLikeDislike('dislike')} className="text-lg"/>
-                          <span>{dislike_count}</span>
-                        </button> */}
+                    
+                      <button onClick={handleLike} type="button" className="flex items-center p-1 space-x-1.5 bg-DeepSeaGreen rounded-xl text-TealBlueGreen py-1 px-3 border-[2px] shadow-lg border-TealBlueGreen">
+                        {
+                          isLiked ?   
+                            <span className="flex items-center gap-1"><BiDislike  className="text-lg"/>{artifact?.like_count}</span> : <span className="flex items-center gap-1"><BiLike className="text-lg"/>{artifact?.like_count}</span>
+                        }
+                        
+                        </button> 
+                          
+                    
+                      
+                      
                       </div>
             <div className="h-full w-full absolute top-0 left-0 z-[-1]">
              <Lottie options={options} loop={true}></Lottie>

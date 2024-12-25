@@ -1,15 +1,15 @@
-import { useLoaderData } from "react-router-dom"
 import Artifact from "../components/Artifact";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { motion } from "motion/react"
+import useAxiosSecure from "../Hooks/useAxiosHook";
 
 
 export default function AllArtifactsPage() {
+  const axiosSecure = useAxiosSecure()
   const [allArtifacts,setAllArtifacts] = useState([]);
   const [search,setSearch] = useState('');
   useEffect( ()=>{
-   axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts?search=${search}`)
+   axiosSecure.get(`/allArtifacts?search=${search}`)
     .then(res =>setAllArtifacts(res.data))
   },[search])
   return (

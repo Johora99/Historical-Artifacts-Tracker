@@ -1,9 +1,9 @@
-import { useContext } from "react"
+
 import { Navigate, useLocation } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import useAuth from "../Hooks/useAuth";
 
 export default function PrivatePage({children}) {
- const {user,loading} = useContext(AuthContext);
+ const {user,loading} = useAuth();
      const location = useLocation();
      if(loading){
       return <div className="w-full h-screen flex items-center justify-center">

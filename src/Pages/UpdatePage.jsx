@@ -13,7 +13,9 @@ import axios from "axios";
 import Swal from 'sweetalert2'
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../Hooks/useAxiosHook";
 export default function UpdatePage() {
+  const axiosSecure = useAxiosSecure()
   const {user} = useAuth();
   const {id} = useParams();
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ export default function UpdatePage() {
   useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts/${id}`);
+      const response = await axiosSecure.get(`/allArtifacts/${id}`);
       setData(response.data); 
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -55,7 +57,7 @@ export default function UpdatePage() {
     artifact_name,artifact_image,artifact_type,historical_context,created_at,discovered_at,discovered_by,like_count : like_count,dislike_count : dislike_count,present_location,artifact_adder
     
   }
-  axios.put(`${import.meta.env.VITE_API_URL}/updateArtifacts/${id}`,allData)
+  axiosSecure.put(`/updateArtifacts/${id}`,allData)
   .then(res => {
     if(res.data.matchedCount){
                         Swal.fire({

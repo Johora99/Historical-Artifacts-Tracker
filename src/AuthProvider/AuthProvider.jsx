@@ -25,11 +25,11 @@ export default function AuthProvider({children}) {
     setUser(currentUser);
     if(currentUser?.email){
       const email = {email:currentUser?.email}
-      axios.post('http://localhost:5000/jwt',email,{withCredentials:true})
+      axios.post(`${import.meta.env.VITE_API_URL}/jwt`,email,{withCredentials:true})
       .then(res =>console.log(res.data))
     }
     else{
-      axios.get('http://localhost:5000/removeToken',{withCredentials:true})
+      axios.get(`${import.meta.env.VITE_API_URL}/removeToken`,{withCredentials:true})
       .then(res=>console.log(res.data))
     }
       setLoading(false);

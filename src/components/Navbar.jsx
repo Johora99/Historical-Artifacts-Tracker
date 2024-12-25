@@ -7,6 +7,7 @@ import { ImCross } from "react-icons/im";
 import { useState } from "react";
 import logo from '../assets/logo.png'
 import useAuth from "../Hooks/useAuth";
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 export default function Navbar() {
   const {user,signOutUser} = useAuth();
   const [navIcon,setNavIcon] = useState(false);
@@ -16,7 +17,7 @@ export default function Navbar() {
     
   }
   return (
-    <div className="w-full bg-CharcoalGreen sticky top-0 left-0 z-50">
+    <div className="w-full bg-CharcoalGreen sticky top-0 z-50 backdrop-blur-2xl">
       <div className="container w-11/12 mx-auto">
         <nav className="text-white flex items-center justify-between py-8">
           <div className="flex items-center">
@@ -25,9 +26,9 @@ export default function Navbar() {
           </div>
           <div className="hidden lg:block">
           <ul className="flex items-center gap-10 *:text-lg *:font-normal">
-            <li><NavLink to='/' className="navLink">Home</NavLink></li>
-            <li><NavLink to='/allArtifacts' className='navLink'>All Artifacts</NavLink></li>
-            <li><NavLink to='/addArtifacts' className='navLink'>Add Artifacts</NavLink></li>
+            <li><NavLink to='/' className={({ isActive }) => (isActive ? "activeNav" : "navLink")}>Home</NavLink></li>
+            <li><NavLink to='/allArtifacts' className={({ isActive }) => (isActive ? "activeNav" : "navLink")}>All Artifacts</NavLink></li>
+            <li><NavLink to='/addArtifacts' className={({ isActive }) => (isActive ? "activeNav" : "navLink")}>Add Artifacts</NavLink></li>
             <li className="relative group z-[20]"><NavLink className='navLink'>
               <p className="flex items-center gap-2">  My Profile<FaChevronDown /></p>
               <ul className="absolute -top-[200px] left-0 p-5 bg-slate-700 w-48  group-hover:block group-hover:top-[180%] transition-all duration-1000 ease-in-out">
@@ -41,7 +42,14 @@ export default function Navbar() {
             {
               user ? <div className="flex items-center gap-5 *:text-lg *:text-TealBlueGreen">
                 <div>
-                <img referrerPolicy="no-referrer" src={user?.photoURL} alt="" className="w-12 h-12 rounded-full"/>
+                <img
+            src={user?.photoURL}
+            alt="User"
+            className="w-12 h-12 rounded-full cursor-pointer"
+            data-tooltip-id="profile-tooltip"
+            data-tooltip-content={user?.displayName}
+          />
+          <ReactTooltip id="profile-tooltip" place="left-end" effect="solid" />
                 </div>
                 <Link onClick={handleSignOut} to='/logIn' className="navBtn btnBland">
             <FaRegCircleUser className="z-[20]"/>

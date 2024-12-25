@@ -20,7 +20,20 @@
  width: 50%;
  transform: translateX(100%);
 }
-
+.activeNav{
+  position: relative;
+}
+.activeNav::before{
+   content: '';
+ height: 3px;
+ background-color: rgb(20, 133, 135);
+ position: absolute;
+ top: 100%;
+ left: 0px;
+  width: 50%;
+ transform: translateX(100%);
+ transition: 0.5s;
+}
 .btnBland{
   position: relative;
   overflow: hidden;

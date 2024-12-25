@@ -10,7 +10,9 @@ import { MdOutlineAttachEmail } from "react-icons/md";
 import useAuth from "../Hooks/useAuth";
 import axios from "axios";
 import Swal from 'sweetalert2'
+import useAxiosSecure from "../Hooks/useAxiosHook";
 export default function AddArtifacts() {
+  const axiosSecure = useAxiosSecure()
   const {user} = useAuth();
   const options = {
     animationData: lottieFile,
@@ -38,7 +40,7 @@ export default function AddArtifacts() {
   }
     
 
-  await axios.post(`${import.meta.env.VITE_API_URL}/allArtifacts`,allData)
+  await axiosSecure.post(`/allArtifacts`,allData)
     .then(res=>{
       if(res.data.insertedId){
                   Swal.fire({

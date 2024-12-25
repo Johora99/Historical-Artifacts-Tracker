@@ -2,14 +2,15 @@ import { motion } from "motion/react"
 import starImg from '../assets/icons8-star-64.png'
 import useAuth from "../Hooks/useAuth"
 import { useEffect, useState } from "react";
-import axios from "axios";
 import LikeArtifact from "../components/LikeArtifact";
+import useAxiosSecure from "../Hooks/useAxiosHook";
 export default function MyLikedArtifactsPage() {
+  const axiosSecure = useAxiosSecure()
   const {user} = useAuth();
   const [likeArtifacts,setLikeArtifacts] = useState([]);
   useEffect(()=>{
     const handleLikeArtifacts = async()=>{
-    await axios.get(`${import.meta.env.VITE_API_URL}/like?email=${user?.email}`)
+    await axiosSecure.get(`/like?email=${user?.email}`)
     .then(res=>setLikeArtifacts(res.data))
     }
     handleLikeArtifacts();

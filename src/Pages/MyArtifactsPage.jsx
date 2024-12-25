@@ -5,14 +5,15 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react"
 import starImg from '../assets/icons8-star-64.png'
 import { useEffect, useState } from "react";
-import axios from "axios";
 import useAuth from "../Hooks/useAuth";
+import useAxiosSecure from "../Hooks/useAxiosHook";
 export default function MyArtifactsPage() {
+  const axiosSecure = useAxiosSecure()
   const {user} = useAuth();
   const [myArtifacts,setMyArtifacts] = useState([]);
   useEffect(()=>{
     const loadedMyArtifacts = async ()=>{
-    await axios.get(`${import.meta.env.VITE_API_URL}/allArtifacts?email=${user?.email}`)
+    await axiosSecure.get(`/allArtifacts?email=${user?.email}`)
       .then(res =>setMyArtifacts(res.data))
     }
     loadedMyArtifacts();
@@ -29,7 +30,7 @@ export default function MyArtifactsPage() {
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-     axios.delete(`${import.meta.env.VITE_API_URL}/myArtifacts/${id}`)
+     axiosSecure.delete(`/myArtifacts/${id}`)
       .then((res) => {
         console.log(res.data)
         if(res.data.acknowledged){
