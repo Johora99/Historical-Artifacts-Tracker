@@ -31,7 +31,7 @@
   },
   {
     "artifact_name": "Egyptian Sarcophagus",
-    "category": "Burial Artifact",
+    "category": "Sculpture",
     "image": "https://i.ibb.co.com/GP1bXX9/a-historical-egyptian-sarcophagus-with-a-mummy-inside.jpg"
   },
   {
@@ -51,12 +51,12 @@
   },
   {
     "artifact_name": "Mayan Calendar",
-    "category": "Tools & Implements",
+    "category": "Architectural Remains",
     "image": "https://i.ibb.co.com/VjnB2m9/mayan-calendar.gif"
   },
   {
     "artifact_name": "Bronze Age Axes",
-    "category": "Tools & Implements",
+    "category": "Architectural Remains",
     "image": "https://i.ibb.co.com/ggGDkV9/800wm.jpg"
   },
   {
@@ -91,7 +91,7 @@
   },
   {
     "artifact_name": "Aztec Sun Stone",
-    "category": "Stonework",
+    "category": "Architectural Remains",
     "image": "https://i.ibb.co.com/XF4pYtd/42363192475-323fabe100-b-1.jpg"
   }
 

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "category": "All Artifacts"
+  },
+  {
+    "id": "2",
+    "category": "Sculpture"
+  },
+  {
+    "id": "3",
+    "category": "Armor"
+  },
+  {
+    "id": "4",
+    "category": "Weaponry"
+  },
+  {
+    "id": "5",
+    "category": "Jewelry"
+  },
+  {
+    "id": "6",
+    "category": "Architectural Remains"
+  },
+  {
+    "id": "7",
+    "category": "Written Document"
+  }
+]
