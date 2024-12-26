@@ -8,9 +8,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 export default function Artifacts() {
   const [artifacts,setArtifacts] = useState([]);
+  const [loading,setLoading] = useState(true)
   useEffect(()=>{
+    setLoading(true)
    axios.get(`${import.meta.env.VITE_API_URL}/latestArtifacts`)
-    .then(res =>setArtifacts(res.data))
+    .then(res =>{
+    setArtifacts(res.data)
+    setLoading(false)
+    })
   },[])
   useEffect(() => {
     AOS.init({
@@ -30,9 +35,21 @@ export default function Artifacts() {
         className="text-TealBlueGreen"> Added </motion.span>Artifacts</motion.h1>
         <p data-aos="fade-left" className="text-center text-LightGray lg:w-[65%] mx-auto">Our collection has just been enriched with a fascinating array of newly discovered artifacts. Each piece tells a unique story of human history, from tools that shaped civilizations to cultural treasures that inspire wonder. Explore these recent additions and take a journey through time as we unveil the latest pieces in our archive.</p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+
+    <div >
+        {
+          loading ? <div className="flex justify-center items-center h-[300px]">
+                         <span className="loading loading-ring loading-xs text-TealBlueGreen"></span>
+                          <span className="loading loading-ring loading-sm text-TealBlueGreen"></span>
+                          <span className="loading loading-ring loading-md text-TealBlueGreen"></span>
+                          <span className="loading loading-ring loading-lg text-TealBlueGreen"></span>     
+          </div> :
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {
           artifacts.map(artifact =><Artifact key={artifact._id} artifact={artifact}></Artifact>)
+        }
+      </div>
+  
         }
       </div>
       <div className="mt-20 pb-20">

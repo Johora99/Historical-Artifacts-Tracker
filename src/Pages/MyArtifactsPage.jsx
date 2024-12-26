@@ -10,6 +10,7 @@ import useAxiosSecure from "../Hooks/useAxiosHook";
 import AOS from "aos";
 import "aos/dist/aos.css";
 export default function MyArtifactsPage() {
+    const [loading,setLoading] = useState(true)
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -22,8 +23,12 @@ export default function MyArtifactsPage() {
   const [myArtifacts,setMyArtifacts] = useState([]);
   useEffect(()=>{
     const loadedMyArtifacts = async ()=>{
+      setLoading(true)
     await axiosSecure.get(`/allArtifacts?email=${user?.email}`)
-      .then(res =>setMyArtifacts(res.data))
+      .then(res =>{
+        setMyArtifacts(res.data)
+        setLoading(false)
+      })
     }
     loadedMyArtifacts();
   },[user?.email]);
@@ -86,6 +91,16 @@ export default function MyArtifactsPage() {
         </thead>
         <tbody>
   {
+  loading ? (
+    <tr>
+      <td colSpan="8" className="text-center py-4 text-LightGray animate-pulse">
+         <span className="loading loading-ring loading-xs text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-sm text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-md text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-lg text-TealBlueGreen"></span>  
+      </td>
+    </tr>
+  ) : (
     myArtifacts.length > 0 ? (
       myArtifacts.map((myArtifact, index) => (
         <tr 
@@ -119,7 +134,9 @@ export default function MyArtifactsPage() {
         </td>
       </tr>
     )
-  }
+  )
+}
+
 </tbody>
 
       </table>

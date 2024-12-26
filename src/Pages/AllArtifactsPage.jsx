@@ -1,16 +1,22 @@
 import Artifact from "../components/Artifact";
-import { useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import { motion } from "motion/react"
 import useAxiosSecure from "../Hooks/useAxiosHook";
 
 
+
 export default function AllArtifactsPage() {
   const axiosSecure = useAxiosSecure();
+  const [loading,setLoading] = useState(true)
   const [allArtifacts,setAllArtifacts] = useState([]);
   const [search,setSearch] = useState('');
   useEffect( ()=>{
-   axiosSecure.get(`/allArtifacts?search=${search}`)
-    .then(res =>setAllArtifacts(res.data))
+    setLoading(true)
+    axiosSecure.get(`/allArtifacts?search=${search}`)
+    .then(res =>{
+      setAllArtifacts(res.data);
+      setLoading(false)
+    })
   },[search])
      useEffect(() => {
     document.title = "LiQuest || All Artifacts";
@@ -29,9 +35,20 @@ export default function AllArtifactsPage() {
          <input  onChange={(e)=>setSearch(e.target.value)} value={search} type="search" name="" id="" placeholder="Search" className="bg-transparent pl-5 focus:outline-none"/>
          <button className="bg-TealBlueGreen rounded-r-xl py-2 px-5 text-white text-lg">Search</button>
         </div>
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+    <div >
       {
-        allArtifacts.map(artifact =><Artifact key={artifact._id} artifact={artifact}></Artifact>)
+        loading ? <div className="flex justify-center items-center h-[300px]">
+                       <span className="loading loading-ring loading-xs text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-sm text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-md text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-lg text-TealBlueGreen"></span>     
+        </div> :
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+           {
+            allArtifacts.map(artifact =><Artifact key={artifact._id} artifact={artifact}></Artifact>)
+           }
+        </div>
+
       }
     </div>
     </div>

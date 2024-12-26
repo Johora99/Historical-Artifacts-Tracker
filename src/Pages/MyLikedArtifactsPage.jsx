@@ -7,6 +7,7 @@ import useAxiosSecure from "../Hooks/useAxiosHook";
 import AOS from "aos";
 import "aos/dist/aos.css";
 export default function MyLikedArtifactsPage() {
+    const [loading,setLoading] = useState(true)
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -19,8 +20,12 @@ export default function MyLikedArtifactsPage() {
   const [likeArtifacts,setLikeArtifacts] = useState([]);
   useEffect(()=>{
     const handleLikeArtifacts = async()=>{
+      setLoading(true)
     await axiosSecure.get(`/like?email=${user?.email}`)
-    .then(res=>setLikeArtifacts(res.data))
+    .then(res=>{
+      setLikeArtifacts(res.data)
+      setLoading(false)
+    })
     }
     handleLikeArtifacts();
   },[user?.email])
@@ -41,6 +46,14 @@ export default function MyLikedArtifactsPage() {
       </div>
         <div className="container w-11/12 mx-auto">
   {
+  loading ? (
+    <div className="flex justify-center items-center h-[200px]">
+     <span className="loading loading-ring loading-xs text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-sm text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-md text-TealBlueGreen"></span>
+                        <span className="loading loading-ring loading-lg text-TealBlueGreen"></span>  
+    </div>
+  ) : (
     likeArtifacts && likeArtifacts.length > 0 ? (
       likeArtifacts.map(likeArtifact => (
         <LikeArtifact 
@@ -53,7 +66,9 @@ export default function MyLikedArtifactsPage() {
         No liked artifacts found. Start liking artifacts to see them here!
       </p>
     )
-  }
+  )
+}
+
 </div>
 
     </div>

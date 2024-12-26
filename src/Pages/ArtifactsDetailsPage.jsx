@@ -25,8 +25,10 @@ export default function ArtifactsDetailsPage() {
   useEffect(() => {
   const handle = async () => {
     try {
+  
       const response = await axiosSecure.get(`/allArtifacts/${id}`);
       setArtifact(response.data);
+    
     } catch (error) {
       console.error('Error fetching artifact data:', error);
     }
@@ -35,8 +37,12 @@ export default function ArtifactsDetailsPage() {
 }, [id]);
 useEffect(()=>{
   const handleLikeData = async ()=>{
+    
     await axiosSecure.get(`/like?email=${user?.email}`)
-    .then(res => setLikes(res.data))
+    .then(res => {
+      setLikes(res.data)
+      
+    })
   }
   handleLikeData()
 },[user?.email])
