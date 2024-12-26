@@ -4,7 +4,16 @@ import useAuth from "../Hooks/useAuth"
 import { useEffect, useState } from "react";
 import LikeArtifact from "../components/LikeArtifact";
 import useAxiosSecure from "../Hooks/useAxiosHook";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function MyLikedArtifactsPage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth();
   const [likeArtifacts,setLikeArtifacts] = useState([]);
@@ -15,10 +24,13 @@ export default function MyLikedArtifactsPage() {
     }
     handleLikeArtifacts();
   },[user?.email])
+     useEffect(() => {
+    document.title = "LiQuest || My Liked Artifacts";
+  }, []);
   return (
       <div className="overflow-x-auto py-20 bg-CharcoalGreen">
       <div className="text-center mb-20">
-                    <motion.h2 animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
+                    <motion.h2 data-aos="zoom-in" animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
                     transition={{duration:2, repeat:Infinity}}
                     
                     className="text-6xl text-white font-semibold text-center mb-5 flex items-center gap-5 justify-center"><img src={starImg} alt="" /> My Liked Artifacts <img src={starImg} alt="" /></motion.h2>

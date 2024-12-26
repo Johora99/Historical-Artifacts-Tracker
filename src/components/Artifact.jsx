@@ -2,10 +2,20 @@
 import { BiDislike } from "react-icons/bi";
 import { BiLike } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 export default function Artifact({artifact}) {
   const {_id,artifact_name,artifact_image,artifact_type,historical_context,created_at,discovered_at,discovered_by,like_count,dislike_count,present_location,artifact_adder} = artifact;
+	useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
-    <div>
+    <div data-aos="zoom-in" className="transform transition-transform duration-300 hover:!scale-105 hover:shadow-2xl">
       <div className="flex flex-col bg-DeepSeaGreen max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md text-TealBlueGreen">
 	<div className="flex space-x-4">
 		<img alt="" src={artifact_adder.artifact_added_image} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />

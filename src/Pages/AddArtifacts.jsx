@@ -8,16 +8,28 @@ import { IoImageOutline } from "react-icons/io5";
 import { GiAncientRuins } from "react-icons/gi";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import useAuth from "../Hooks/useAuth";
-import axios from "axios";
 import Swal from 'sweetalert2'
 import useAxiosSecure from "../Hooks/useAxiosHook";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function AddArtifacts() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth();
   const options = {
     animationData: lottieFile,
     loop: true
   };
+     useEffect(() => {
+    document.title = "LiQuest || Add Artifacts";
+  }, []);
   const handleAddArtifacts = async (e)=>{
     e.preventDefault();
     const artifact_added_name = e.target.name.value;
@@ -59,7 +71,7 @@ export default function AddArtifacts() {
       <div className="bgLinear">
         <div className="container w-11/12 mx-auto overflow-hidden ">
     
-        <div className="lg:w-[70%]  mx-auto bg-white lg:flex items-center p-10 my-20 gap-10 rounded-xl shadow-xl relative z-20">
+        <div data-aos="zoom-in" className="lg:w-[70%]  mx-auto bg-white lg:flex items-center p-10 my-20 gap-10 rounded-xl shadow-xl relative z-20">
 
         <div className="flex-1 mx-auto bg-transparent">
           <div>

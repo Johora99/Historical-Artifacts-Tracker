@@ -1,0 +1,49 @@
+{
+  "client_satisfaction": [
+    {
+      "id": "CS001",
+      "name": "John Doe",
+      "rating": 4.8,
+      "feedback": "The artifacts in the gallery were beautifully preserved and provided great insight into historical cultures.",
+      "location": "New York, USA",
+      "date": "2024-10-15",
+      "image": "https://i.ibb.co.com/XbW4Vbt/360-F-302884605-actpip-Od-POQHDTn-Ftp4zg4-Rtl-Wzh-OASp.jpg"
+    },
+    {
+      "id": "CS002",
+      "name": "Anna Müller",
+      "rating": 5.0,
+      "feedback": "I was amazed by the intricate details and storytelling of the ancient artifacts. A must-visit for any history enthusiast!",
+      "location": "Berlin, Germany",
+      "date": "2024-10-20",
+      "image": "https://i.ibb.co.com/XX01C8g/attractive-1869761-1280.jpg"
+    },
+    {
+      "id": "CS003",
+      "name": "Liam Smith",
+      "rating": 4.5,
+      "feedback": "The artifacts were well-categorized, and the accompanying descriptions were very informative.",
+      "location": "Sydney, Australia",
+      "date": "2024-11-01",
+      "image": "https://i.ibb.co.com/1bGSnmd/istockphoto-1191193169-612x612.jpg"
+    },
+    {
+      "id": "CS004",
+      "name": "Sophia Becker",
+      "rating": 4.7,
+      "feedback": "I thoroughly enjoyed learning about the unique artifacts from different eras. The staff was knowledgeable and helpful.",
+      "location": "Munich, Germany",
+      "date": "2024-11-05",
+      "image": "https://i.ibb.co.com/dk8VshV/istockphoto-1418260625-612x612.jpg"
+    },
+    {
+      "id": "CS005",
+      "name": "Carlos García",
+      "rating": 4.9,
+      "feedback": "The collection of artifacts was outstanding, especially the ancient sculptures. Truly an unforgettable experience!",
+      "location": "Madrid, Spain",
+      "date": "2024-11-10",
+      "image": "https://i.ibb.co.com/r61XHXM/pexels-justin-shaifer-501272-1222271.jpg"
+    }
+  ]
+}

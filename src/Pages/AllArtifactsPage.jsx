@@ -12,6 +12,9 @@ export default function AllArtifactsPage() {
    axiosSecure.get(`/allArtifacts?search=${search}`)
     .then(res =>setAllArtifacts(res.data))
   },[search])
+     useEffect(() => {
+    document.title = "LiQuest || All Artifacts";
+  }, []);
   return (
   <div className="w-full bg-CharcoalGreen py-20">
     <div className="container w-11/12 mx-auto">

@@ -5,9 +5,17 @@ import lottieFile from '../assets/Animation - 1734166572857.json';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../components/GoogleSignIn";
 import useAuth from "../Hooks/useAuth";
-import { useRef } from "react";
-
+import { useEffect, useRef } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function LogInPage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const {userLogIn,resetPassword} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -41,15 +49,17 @@ export default function LogInPage() {
       console.log(err)
     })
   }
-  
+     useEffect(() => {
+    document.title = "LiQuest || Login Page";
+  }, []);
   return (
       <div className="bgStyle">
       <div className="bgLinear">
         <div className="container w-11/12 mx-auto overflow-hidden ">
     
-        <div className="lg:w-[45%]  mx-auto bg-white lg:flex items-center p-10 my-20 gap-10 rounded-xl shadow-xl relative z-20">
+        <div data-aos="zoom-in" className="lg:w-[45%]  mx-auto bg-white lg:flex items-center p-10 my-20 gap-10 rounded-xl shadow-xl relative z-20">
 
-        <div className="flex-1 mx-auto bg-transparent">
+        <div  className="flex-1 mx-auto bg-transparent">
           <div>
             <h3 className="text-4xl font-semibold mb-8">Welcome Back !</h3>
           </div>

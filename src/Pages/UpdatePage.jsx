@@ -73,6 +73,9 @@ export default function UpdatePage() {
   })
 
   }
+     useEffect(() => {
+    document.title = "LiQuest || Update Page";
+  }, []);
   return (
     <div className="bgStyle">
       <div className="bgLinear">

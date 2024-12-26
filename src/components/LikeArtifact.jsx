@@ -1,12 +1,22 @@
 import { RiCompassDiscoverLine } from "react-icons/ri";
 import { IoLocationOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 export default function LikeArtifact({likeArtifact}) {
   const {artifacts_Info,artifact_adder} = likeArtifact;
   const {_id,artifact_name,artifact_image,artifact_type,historical_context,created_at,discovered_at,discovered_by,present_location} = artifacts_Info;
   const {artifact_added_name,artifact_added_image,artifact_added_date} =artifacts_Info.artifact_adder;
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
-    <div className="border-[1px] border-TealBlueGreen border-s-8 rounded-xl text-TealBlueGreen mb-5 shadow-xl">
+    <div data-aos="zoom-in" className="border-[1px] border-TealBlueGreen border-s-8 rounded-xl text-TealBlueGreen mb-5 shadow-xl">
        <div>
         <div className="flex items-center gap-20">
           <div className="flex items-center gap-5">

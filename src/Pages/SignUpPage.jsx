@@ -7,7 +7,9 @@ import lottieFile from '../assets/Animation - 1734166572857.json'
 import { Link, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../components/GoogleSignIn";
 import useAuth from "../Hooks/useAuth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function SignUpPage() {
      const {creatUser,userUpdateProfile} = useAuth();
      const navigator = useNavigate();
@@ -71,12 +73,22 @@ export default function SignUpPage() {
       setError(err)
     })
   }
+     useEffect(() => {
+    document.title = "LiQuest || Sign Up Page";
+  }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="bgStyle">
       <div className="bgLinear">
         <div className="container w-11/12 mx-auto overflow-hidden ">
     
-        <div className="lg:w-[70%]  mx-auto bg-white lg:flex items-center p-10 my-20 gap-10 rounded-xl shadow-xl relative z-20">
+        <div data-aos="zoom-in" className="lg:w-[70%]  mx-auto bg-white lg:flex items-center p-10 my-20 gap-10 rounded-xl shadow-xl relative z-20">
 
         <div className="flex-1 mx-auto bg-transparent">
           <div>

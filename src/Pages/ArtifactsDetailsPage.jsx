@@ -19,7 +19,9 @@ export default function ArtifactsDetailsPage() {
     animationData: lottieFile,
     loop: true
   };
-
+     useEffect(() => {
+    document.title = "LiQuest || Artifact Details";
+  }, []);
   useEffect(() => {
   const handle = async () => {
     try {

@@ -7,7 +7,16 @@ import starImg from '../assets/icons8-star-64.png'
 import { useEffect, useState } from "react";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosHook";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function MyArtifactsPage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth();
   const [myArtifacts,setMyArtifacts] = useState([]);
@@ -46,11 +55,13 @@ export default function MyArtifactsPage() {
   }
 });
  }
-
+   useEffect(() => {
+    document.title = "LiQuest || My Artifacts";
+  }, []);
   return (
     <div className="overflow-x-auto py-20 bg-CharcoalGreen ">
       <div className="text-center mb-20">
-                    <motion.h2 animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
+                    <motion.h2 data-aos="zoom-in" animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
                     transition={{duration:2, repeat:Infinity}}
                     
                     className="text-6xl text-TealBlueGreen font-semibold text-center mb-5 flex items-center gap-5 justify-center"><img src={starImg} alt="" /> My Posted Artifacts <img src={starImg} alt="" /></motion.h2>

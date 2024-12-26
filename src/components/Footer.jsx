@@ -4,19 +4,29 @@ import logo from '../assets/logo.png'
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 export default function Footer() {
+	useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="bg-DeepSeaGreen">
       <footer className="py-20">
 	<div className="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50">
 		<div className="grid grid-cols-12">
 			<div className="pb-6 col-span-full md:pb-0 md:col-span-6">
-				  <div className="flex items-center">
+				  <div data-aos="zoom-in" className="flex items-center">
                     <img src={logo} alt="" />
                   <h2 className="text-2xl text-white lg:text-4xl font-bold [text-shadow:_7px_5px_9px_rgb(20,133,135)]"><span className="text-TealBlueGreen">Li</span>Quest</h2>
                   </div>
 			</div>
-			<div className="col-span-6 text-center md:text-left md:col-span-3 text-white">
+			<div data-aos="zoom-in" className="col-span-6 text-center md:text-left md:col-span-3 text-white">
 				<p className="text-xl font-semibold mb-5 text-TealBlueGreen">Quick Link</p>
 				<ul>
 					<li><Link to='/' className="navLink">Home</Link></li>
@@ -26,7 +36,7 @@ export default function Footer() {
            <li><Link to='/myLikedArtifacts' className="navLink">Liked Artifacts</Link></li>
 				</ul>
 			</div>
-			<div className="col-span-6 text-center md:text-left md:col-span-3 text-white">
+			<div data-aos="zoom-in" className="col-span-6 text-center md:text-left md:col-span-3 text-white">
 				<p className="text-xl font-semibold mb-5 text-TealBlueGreen">Keep In Touch</p>
 				<ul>
 					<li className='flex items-center gap-2'><IoLocationOutline className='text-TealBlueGreen'/>Collins Street West,121 
@@ -37,7 +47,7 @@ export default function Footer() {
 			</div>
 		</div>
 		<div className="grid justify-center pt-6 lg:justify-between text-TealBlueGreen">
-			<div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
+			<div data-aos="zoom-in" className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
 				<span>©2024 All rights reserved</span>
 				<a rel="noopener noreferrer" href="#">
 					<span>Privacy policy</span>
@@ -46,7 +56,7 @@ export default function Footer() {
 					<span>Terms of service</span>
 				</a>
 			</div>
-			<div className="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
+			<div data-aos="zoom-in" className="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
 				<a rel="noopener noreferrer" href="#" title="Email" className="flex items-center justify-center w-10 h-10 bg-white hover:bg-TealBlueGreen hover:text-white rounded-full transition-all duration-300">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
 						<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>

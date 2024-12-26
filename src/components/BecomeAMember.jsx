@@ -2,6 +2,9 @@
 import { Link } from 'react-router-dom';
 import bgImg from '../assets/home6-trending-jobs-bg.png'
 import Img1 from '../assets/vase-being-excavating.jpg';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 export default function BecomeAMember() {
 const bgStyle = {
   backgroundImage: `url(${bgImg})`,
@@ -10,14 +13,21 @@ const bgStyle = {
   backgroundPosition: 'center', 
   backgroundAttachment: 'fixed',
 };
+useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div style={bgStyle} className='w-full py-20'>
-       <div className='grid grid-cols-1 lg:grid-cols-2'>
-        <div className='bg-CharcoalGreen relative group'>
-          <img src={Img1} alt="" className='w-full'/>
+       <div className='grid grid-cols-1 lg:grid-cols-2 h-[500px]'>
+        <div data-aos="fade-right" className='bg-CharcoalGreen relative group'>
+          <img src={Img1} alt="" className='w-full h-[500px] object-cover'/>
         
         </div>
-        <div className='relative group'>
+        <div data-aos="fade-left" className='relative group'>
           <div className='p-10'>
           <h2 className='text-6xl font-semibold text-TealBlueGreen mb-10'>Become A Member </h2>
           <ul className='*:text-white *:text-2xl'>
