@@ -41,10 +41,10 @@ export default function UpComingArtifacts() {
                     <motion.h2 data-aos="fade-right" animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
                     transition={{duration:2, repeat:Infinity}}
                     
-                    className="text-5xl text-TealBlueGreen font-semibold text-center flex items-center gap-5 justify-center">Our Upcoming Artifacts Collection</motion.h2>
+                    className="text-4xl lg:text-5xl text-TealBlueGreen font-semibold text-center flex items-center gap-5 justify-center">Our Upcoming Artifacts Collection</motion.h2>
                     
                   </div>
-        <p data-aos="fade-left" className="text-LightGray mb-20 w-[65%] mx-auto">
+        <p data-aos="fade-left" className="text-LightGray mb-20 lg:w-[65%] mx-auto">
           Explore a fascinating collection of artifacts from different eras of history, each telling a unique story of cultures, civilizations, and events that shaped the world. From ancient tools and weapons to intricate jewelry and architectural remains, these relics offer a glimpse into the lives of people who lived centuries ago. Each artifact, carefully preserved, provides a window into the past, revealing the creativity, craftsmanship, and ingenuity that has been passed down through generations. Discover the timeless beauty and historical significance of these objects, which continue to inspire awe and admiration today.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

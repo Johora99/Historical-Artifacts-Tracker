@@ -46,7 +46,7 @@ export default function Testimonials() {
       <motion.h2 animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
         transition={{duration:2, repeat:Infinity}}
         
-        className="text-6xl text-white font-semibold text-center mb-5">Testimonials</motion.h2>
+        className="text-4xl lg:text-6xl text-white font-semibold text-center mb-5">Testimonials</motion.h2>
         <p className="text-2xl font-semibold text-TealBlueGreen mt-3">
           Clients Say
         </p>

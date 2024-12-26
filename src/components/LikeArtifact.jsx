@@ -18,8 +18,8 @@ export default function LikeArtifact({likeArtifact}) {
   return (
     <div data-aos="zoom-in" className="border-[1px] border-TealBlueGreen border-s-8 rounded-xl text-TealBlueGreen mb-5 shadow-xl">
        <div>
-        <div className="flex items-center gap-20">
-          <div className="flex items-center gap-5">
+        <div className="flex flex-col lg:flex-row items-center gap-5 lg:gap-20">
+          <div className="flex flex-col lg:flex-row items-center gap-5">
           <img src={artifact_image} alt="" className="w-32 h-28 object-cover"/>
           <div>
             <h4 className="text-xl font-medium">{artifact_name}</h4>

@@ -62,10 +62,10 @@ useEffect(() => {
         <motion.h2 data-aos="fade-right" animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
         transition={{duration:2, repeat:Infinity}}
         
-        className="text-6xl text-white font-semibold text-center mb-5">Our Gallery</motion.h2>
+        className="text-4xl lg:text-6xl text-white font-semibold text-center mb-5">Our Gallery</motion.h2>
         <p data-aos="fade-left" className="lg:w-[65%] mx-auto text-center text-LightGray">Our collection has just been enriched with a fascinating array of newly discovered artifacts. Each piece tells a unique story of human history, from tools that shaped civilizations to cultural treasures that inspire wonder. Explore these recent additions and take a journey through time as we unveil the latest pieces in our archive.</p>
       </div>
-      <div className="flex items-center justify-center gap-5">
+      <div className="flex flex-wrap items-center justify-center gap-5">
         {
           categories.map((item,index)=> <button data-aos="zoom-in"
             onClick={() => selectedCategory(item.category)}

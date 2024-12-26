@@ -5,7 +5,7 @@ import useAxiosSecure from "../Hooks/useAxiosHook";
 
 
 export default function AllArtifactsPage() {
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
   const [allArtifacts,setAllArtifacts] = useState([]);
   const [search,setSearch] = useState('');
   useEffect( ()=>{
@@ -22,7 +22,7 @@ export default function AllArtifactsPage() {
         <motion.h2 animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
         transition={{duration:2, repeat:Infinity}}
         
-        className="text-6xl text-white font-semibold text-center mb-5">All Artifacts</motion.h2>
+        className="text-4xl lg:text-6xl text-white font-semibold text-center mb-5">All Artifacts</motion.h2>
         <p className="lg:w-[65%] mx-auto text-center text-LightGray">Our collection has just been enriched with a fascinating array of newly discovered artifacts. Each piece tells a unique story of human history, from tools that shaped civilizations to cultural treasures that inspire wonder. Explore these recent additions and take a journey through time as we unveil the latest pieces in our archive.</p>
       </div>
         <div className="border-[1px] border-TealBlueGreen rounded-xl col-span-2 flex justify-between w-[50%] mx-auto mb-20">

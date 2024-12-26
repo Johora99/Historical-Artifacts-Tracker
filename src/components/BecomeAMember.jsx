@@ -22,21 +22,21 @@ useEffect(() => {
 
   return (
     <div style={bgStyle} className='w-full py-20'>
-       <div className='grid grid-cols-1 lg:grid-cols-2 h-[500px]'>
+       <div className='grid grid-cols-1 lg:grid-cols-2 lg:h-[500px]'>
         <div data-aos="fade-right" className='bg-CharcoalGreen relative group'>
-          <img src={Img1} alt="" className='w-full h-[500px] object-cover'/>
+          <img src={Img1} alt="" className='w-full h-[300px] lg:h-[500px] object-cover'/>
         
         </div>
         <div data-aos="fade-left" className='relative group'>
           <div className='p-10'>
-          <h2 className='text-6xl font-semibold text-TealBlueGreen mb-10'>Become A Member </h2>
-          <ul className='*:text-white *:text-2xl'>
+          <h2 className='text-4xl lg:text-6xl font-semibold text-TealBlueGreen mb-10'>Become A Member </h2>
+          <ul className='*:text-white text-xl lg:*:text-2xl'>
             <li>Unlimited General Ticks</li>
             <li className='my-2'>Free Tickets to Special Artifact Hacks</li>
             <li>Access to a Member Entrance</li>
           </ul>
             <div className=" text-TealBlueGreen hover:text-TealBlueGreen mt-10">
-            <Link to='/signUp' className="navBtn border-TealBlueGreen py-3 px-10 btnBland my-2 w-fit">
+            <Link to='/signUp' className="navBtn border-TealBlueGreen py-2 lg:py-3 px-10 btnBland my-2 w-fit">
             <button className="z-[20] text-lg font-medium">Become A Member</button>
               </Link>
           </div>

@@ -25,7 +25,7 @@ export default function Artifacts() {
         <motion.h1 data-aos="fade-right" animate={{ color:['rgb(20, 133, 135)','#fff','rgb(20, 133, 135)']}} 
         transition={{duration:2, repeat:Infinity}}
         
-        className="text-6xl text-white font-semibold text-center mb-5">Recent<motion.span animate={{color:['#fff','rgb(20, 133, 135)','#fff']}} 
+        className="text-4xl lg:text-6xl text-white font-semibold text-center mb-5">Recent<motion.span animate={{color:['#fff','rgb(20, 133, 135)','#fff']}} 
         transition={{duration:2,repeat:Infinity}}
         className="text-TealBlueGreen"> Added </motion.span>Artifacts</motion.h1>
         <p data-aos="fade-left" className="text-center text-LightGray lg:w-[65%] mx-auto">Our collection has just been enriched with a fascinating array of newly discovered artifacts. Each piece tells a unique story of human history, from tools that shaped civilizations to cultural treasures that inspire wonder. Explore these recent additions and take a journey through time as we unveil the latest pieces in our archive.</p>

@@ -5,7 +5,7 @@ import lottieFile from '../assets/Animation - 1734166572857.json';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../components/GoogleSignIn";
 import useAuth from "../Hooks/useAuth";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 export default function LogInPage() {
@@ -15,7 +15,7 @@ export default function LogInPage() {
       once: true,
     });
   }, []);
-
+  const [error,setError] = useState('')
   const {userLogIn,resetPassword} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function LogInPage() {
       console.log(res);
     })
     .catch(err =>{
-      console.log(err)
+      
     })
  }
      const options = {
@@ -46,7 +46,7 @@ export default function LogInPage() {
       navigate(location.state || '/');
     })
     .catch(err =>{
-      console.log(err)
+      setError(err)
     })
   }
      useEffect(() => {
@@ -87,6 +87,11 @@ export default function LogInPage() {
          </label>
    <div>
     <button className="fromBtn">Sign In</button>
+   </div>
+   <div>
+    {
+      error && <p className="text-red-500 mt-2">Please check your credentials and try again.</p>
+    }
    </div>
        </form>
        <div>
