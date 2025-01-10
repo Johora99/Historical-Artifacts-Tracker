@@ -24,7 +24,7 @@ export default function UpdatePage() {
   useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await axiosSecure.get(`/allArtifacts/${id}`);
+      const response = await axiosSecure.get(`/allArtifacts/byId/${id}`);
       setData(response.data); 
     } catch (error) {
       console.error('Error fetching data:', error);

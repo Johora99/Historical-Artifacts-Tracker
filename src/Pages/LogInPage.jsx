@@ -43,7 +43,11 @@ export default function LogInPage() {
     console.log(email)
     userLogIn(email,password)
     .then(res =>{
-      navigate(location.state || '/');
+    if(location.state?.from){
+          navigate(location.state.from)
+        }else{
+          navigate('/')
+        }
     })
     .catch(err =>{
       setError(err)

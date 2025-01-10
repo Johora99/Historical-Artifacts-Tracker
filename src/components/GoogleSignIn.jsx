@@ -10,7 +10,11 @@ export default function GoogleSignIn() {
   const handleGoogleSignIn = ()=>{
     googleSignIn()
     .then(res =>{
-      navigator(location.state || '/');
+    if(location.state?.from){
+          navigator(location.state.from)
+        }else{
+          navigator('/')
+        }
     })
     .catch(err =>{
       console.log(err)

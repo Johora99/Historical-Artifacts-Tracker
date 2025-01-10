@@ -92,7 +92,7 @@ export default function Navbar() {
                 {
                   user ? 
               <div className=" *:text-white hover:*:text-TealBlueGreen">
-              <Link className="navBtn border-white py-1 btnBland my-2">
+              <Link onClick={handleSignOut} to='/logIn' className="navBtn border-white py-1 btnBland my-2">
             <FaRegCircleUser className="z-[20]"/>
             <button className="z-[20]">Sign Out</button>
             </Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
             <FaRegCircleUser className="z-[20]"/>
             <button className="z-[20]">Sign In</button>
             </Link>
-            <Link to='/signUp' className="navBtn border-white py-1 btnBland">
+            <Link  to='/signUp' className="navBtn border-white py-1 btnBland">
             <MdOutlinePersonAddAlt  className="z-[20]"/>
             <button className="z-[20]">Sign Up</button>
             </Link>

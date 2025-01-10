@@ -26,7 +26,7 @@ export default function ArtifactsDetailsPage() {
   const handle = async () => {
     try {
   
-      const response = await axiosSecure.get(`/allArtifacts/${id}`);
+      const response = await axiosSecure.get(`/allArtifacts/byId/${id}`);
       setArtifact(response.data);
     
     } catch (error) {
@@ -71,7 +71,7 @@ const handleLike = async () => {
     }
     })
 
-    const response = await axiosSecure.get(`/allArtifacts/${id}`);
+    const response = await axiosSecure.get(`/allArtifacts/byId/${id}`);
     setArtifact(response.data); 
   } catch (error) {
     toast.error('You have already liked this artifact!');

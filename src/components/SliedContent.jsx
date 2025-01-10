@@ -13,9 +13,9 @@ export default function SliedContent({title}) {
   return (
          <div>
           <div className="text-center">
-            <h2 data-aos="zoom-in" className="text-4xl lg:text-7xl font-bold text-TealBlueGreen mb-5 lg:mb-0">{title}</h2>
+            <h2 data-aos="zoom-in" className="text-3xl lg:text-7xl font-bold text-TealBlueGreen mb-5 lg:mb-0">{title}</h2>
             <p data-aos="fade-right" className="hidden lg:block text-white my-5">From tools and pottery to jewelry and weapons, each artifact tells a unique story about its creators and their way of life. These objects serve as invaluable clues for historians and archaeologists, helping to piece together the mysteries of humanity's journey through time.</p>
-            <button data-aos="fade-left" className="text-white border-[3px] border-TealBlueGreen bg-TealBlueGreen py-2 lg:py-3 px-10 text-lg lg:text-xl font-semibold bg-opacity-[0.5] hover:bg-opacity-[1] transition-all duration-300">Learn More</button>
+            <button data-aos="fade-left" className="text-white border-[3px] border-TealBlueGreen bg-TealBlueGreen py-1 lg:py-3 px-10  text-base lg:text-xl font-semibold bg-opacity-[0.5] hover:bg-opacity-[1] transition-all duration-300">Learn More</button>
           </div>
          </div>
   )

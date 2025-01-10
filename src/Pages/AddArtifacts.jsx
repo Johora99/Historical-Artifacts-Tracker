@@ -13,7 +13,9 @@ import useAxiosSecure from "../Hooks/useAxiosHook";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 export default function AddArtifacts() {
+ const navigate = useNavigate();
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -63,6 +65,7 @@ export default function AddArtifacts() {
         timer: 1500
       });
        e.target.reset();
+       navigate('/myArtifacts');
       }
     })
   }

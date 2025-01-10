@@ -10,7 +10,7 @@ import useAxiosSecure from "../Hooks/useAxiosHook";
 import AOS from "aos";
 import "aos/dist/aos.css";
 export default function MyArtifactsPage() {
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(true);
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -24,7 +24,7 @@ export default function MyArtifactsPage() {
   useEffect(()=>{
     const loadedMyArtifacts = async ()=>{
       setLoading(true)
-    await axiosSecure.get(`/allArtifacts?email=${user?.email}`)
+    await axiosSecure.get(`/allArtifacts/byEmail/${user?.email}`)
       .then(res =>{
         setMyArtifacts(res.data)
         setLoading(false)
@@ -32,7 +32,7 @@ export default function MyArtifactsPage() {
     }
     loadedMyArtifacts();
   },[user?.email]);
-
+   console.log(myArtifacts)
  const handleDeleteArtifacts = async (id)=>{
     Swal.fire({
   title: "Are you sure?",
