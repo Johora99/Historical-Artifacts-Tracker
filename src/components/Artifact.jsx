@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { BorderBeam } from "./ui/border-beam";
 export default function Artifact({artifact}) {
   const {_id,artifact_name,artifact_image,artifact_type,historical_context,created_at,discovered_at,discovered_by,like_count,dislike_count,present_location,artifact_adder} = artifact;
 	useEffect(() => {
@@ -58,6 +59,7 @@ export default function Artifact({artifact}) {
     <button className="z-20">View Details</button>
     </Link>
 </div>
+ <BorderBeam />
     </div>
   )
 }

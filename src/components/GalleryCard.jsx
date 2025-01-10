@@ -2,6 +2,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { BorderBeam } from "./ui/border-beam";
 export default function GalleryCard({item}) {
   useEffect(() => {
     AOS.init({
@@ -18,6 +19,7 @@ export default function GalleryCard({item}) {
           <p className="text-TealBlueGreen text-xl font-medium">{item.artifact_name}</p>
          </div>
        </div>
+        <BorderBeam />
     </div>
   )
 }

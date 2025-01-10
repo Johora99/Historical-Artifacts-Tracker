@@ -28,7 +28,10 @@ export default function Navbar() {
           <ul className="flex items-center gap-10 *:text-lg *:font-normal">
             <li><NavLink to='/' className={({ isActive }) => (isActive ? "activeNav" : "navLink")}>Home</NavLink></li>
             <li><NavLink to='/allArtifacts' className={({ isActive }) => (isActive ? "activeNav" : "navLink")}>All Artifacts</NavLink></li>
-            <li><NavLink to='/addArtifacts' className={({ isActive }) => (isActive ? "activeNav" : "navLink")}>Add Artifacts</NavLink></li>
+
+            {
+              user && <>
+                 <li><NavLink to='/addArtifacts' className={({ isActive }) => (isActive ? "activeNav" : "navLink")}>Add Artifacts</NavLink></li>
             <li className="relative group z-[20]"><NavLink className='navLink'>
               <p className="flex items-center gap-2">  My Profile<FaChevronDown /></p>
               <ul className="absolute -top-[200px] left-0 p-5 bg-slate-700 w-48  group-hover:block group-hover:top-[180%] transition-all duration-1000 ease-in-out">
@@ -36,6 +39,12 @@ export default function Navbar() {
                <li><NavLink to='/myLikedArtifacts'>Liked Artifacts</NavLink></li>
               </ul>
               </NavLink></li>
+              </>
+            }
+
+
+
+          
           </ul>
           </div>
           <div className="hidden lg:block">
