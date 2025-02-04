@@ -89,6 +89,13 @@ This project uses the following npm packages:
 - **tailwindcss** - ^3.4.17  
   A utility-first CSS framework for rapidly building custom designs.
 
+  
+## 🔧 Installation
+```sh
+git clone https://github.com/Johora99/Historical-Artifacts-Tracker.git
+cd Historical-Artifacts-Tracker
+npm install
+npm run dev
 ## Live Link
 https://benevolent-cat-fcdbdd.netlify.app
 
